@@ -1,8 +1,8 @@
-<div class="col-xs-9">
+<div class="col-xs-12">
     			<div class="row">
     				
     				<div class="col-xs-12">
-    					<h3 class="title-cat">Tin tức & Sự kiện nổi bật</h3>
+    					<h3 class="title-big"><img src="<?=base_url()?>assets/front/images/category_icon.png" alt=""> Tin tức & Sự kiện nổi bật</h3>
     					<div class="row">
     						<div class="col-xs-7">
     							<div class="row">
@@ -39,7 +39,7 @@
 
     			<div class="row">
     				<div class="col-xs-12">
-    					<h3 class="title-cat">tin tức và sự kiện khác</h3>
+    					<h3 class="title-big"><img src="<?=base_url()?>assets/front/images/category_icon.png" alt=""> Tin tức và sự kiện khác</h3>
     					<div class="clearfix"></div>
     					<div class="list-news">
     						<?php foreach($otherNews as $row) : ?>

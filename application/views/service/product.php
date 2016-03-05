@@ -1,4 +1,4 @@
-<div class="col-xs-9" id="detail_entry">
+<div class="col-xs-12" id="detail_entry">
     <div class="row">
     	
     	<div class="col-xs-12">

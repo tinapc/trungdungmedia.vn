@@ -125,6 +125,7 @@ input.input-search{
 }
 
 .main{padding-top: 30px;}
+<<<<<<< HEAD
 
 .inner-main{
 	/*display: inline-block;
@@ -138,6 +139,8 @@ input.input-search{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );*/
 }
 
+=======
+>>>>>>> 59081a906a08bc2eb29806f65e42c48f5c25747e
 .main .title-big{margin-bottom: 20px;}
 
 /** Field at Home page **/
@@ -463,3 +466,5 @@ h3.cate_pro span{
 #partner .nbs-flexisel-ul{list-style: none}
 #partner .nbs-flexisel-ul li{float: left; list-style: none}
 #partner .nbs-flexisel-ul li img{border:1px solid #f2f2f2;}
+}
+

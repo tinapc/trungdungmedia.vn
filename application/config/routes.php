@@ -57,8 +57,8 @@ $route['lien-he'] = 'page/contact';
 $route['tuyen-dung'] = 'page/job';
 $route['tuyen-dung/(:num)'] = 'page/job/$1';
 
-$route['tai-sao-chon-tam-diem'] = 'page/whychooseTD/$1';
-$route['tai-sao-chon-tam-diem/(:any)'] = 'page/index/$1';
+/*$route['tai-sao-chon-tam-diem'] = 'page/whychooseTD/$1';
+$route['tai-sao-chon-tam-diem/(:any)'] = 'page/index/$1';*/
 
 $route['dich-vu'] = 'service/index';
 $route['dich-vu/([a-zA-Z0-9_-]+)'] = 'service/item/$1';

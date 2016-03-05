@@ -1,4 +1,43 @@
-<div class="col-xs-9" id="detail_entry">
+<style type="text/css">
+	.content-detail table td,
+	.VCSortableInPreviewMode{
+		width:100% !important;
+		padding: 15px !important;
+	}
+	.content-detail table{width: 100%;}
+
+	.content-detail video{
+		width: 100%; height: 400px;
+	}
+
+	.page_navigation , .alt_page_navigation{
+		padding-bottom: 10px;
+	}
+
+	.page_navigation a, .alt_page_navigation a{
+		padding:3px 5px;
+		margin:2px;
+		color:white;
+		text-decoration:none;
+		float: left;
+		font-family: Tahoma;
+		font-size: 12px;
+		background-color:#252f4b;
+	}
+	.active_page{
+		background-color:white !important;
+		color:black !important;
+	}
+
+</style>
+<script type="text/javascript" src="<?php echo base_url()?>assets/front/plugin/pagination/jquery.pajinate.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var tot = "<?php echo count($related)?>";
+		$('#paging_container1').pajinate();
+	});
+</script>
+<div class="col-xs-12" id="detail_entry">
     <div class="row">
     	
     	<div class="col-xs-12">
@@ -33,16 +72,19 @@
     		<h3 class="title-cat">tin liên quan</h3>
     		<div class="clearfix"></div>
     		<div class="list-news" style="margin-bottom:30px;">
-    			<ul class="nav nav-pills nav-stacked related-news nav-news">
-                    
-                    <?php foreach($related as $row) : ?>
-                        <?php if($row->external_link !== '') : ?>
-    				    <li><a href="<?=$row->external_link?>" <?=$row->link_attr?>><i class="fa fa-angle-right"></i> <?=$row->title?> </a></li>
-                        <?php else : ?>    
-                        <li><a href="<?=site_url('tin-tuc/'.$row->alias)?>#detail_entry" <?=$row->link_attr?>><i class="fa fa-angle-right"></i> <?=$row->title?> </a></li>
-                        <?php endif ?>
-                    <?php endforeach ?> 
-    			</ul>
+				<div id="paging_container1">
+					<ul class="nav nav-pills nav-stacked related-news nav-news content" style="border:none; padding-left:0">
+
+						<?php foreach($related as $row) : ?>
+							<?php if($row->external_link !== '') : ?>
+							<li><a href="<?=$row->external_link?>" <?=$row->link_attr?>><i class="fa fa-angle-right"></i> <?=$row->title?> </a></li>
+							<?php else : ?>
+							<li><a href="<?=site_url('tin-tuc/'.$row->alias)?>#detail_entry" <?=$row->link_attr?>><i class="fa fa-angle-right"></i> <?=$row->title?> </a></li>
+							<?php endif ?>
+						<?php endforeach ?>
+					</ul>
+					<div class="page_navigation" style="padding-top:30px;"></div>
+				</div>
     		</div>
     	</div>
     	

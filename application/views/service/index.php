@@ -1,8 +1,8 @@
-<div class="col-xs-9">
+<div class="col-xs-12">
 	<div class="row">
 		
 		<div class="col-xs-12">
-			<h3 class="title-cat">Sản Phẩm & Dịch Vụ</h3>
+			<h3 class="title-big"><img src="<?=base_url()?>assets/front/images/category_icon.png" alt=""> Sản Phẩm & Dịch Vụ</h3>
 			<div class="row">
 				<?php foreach($content as $row) : ?>
 				<div class="col-xs-6">

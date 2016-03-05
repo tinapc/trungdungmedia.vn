@@ -28,6 +28,7 @@
 	</li>
 	<li class="dropdown">
 		<a class="dropdown-toggle disabled <?=$activeWhyChooseTD?>" data-toggle="dropdown" role="button" aria-expanded="false" href="<?=site_url('page/ly-do-chon-trung-dung-media')?>" title="">Lý do chọn TrungDungMedia</a>
+
 	</li>
 	<li class="dropdown">
 		<a class="dropdown-toggle disabled <?php if($this->router->fetch_class() == 'service') echo "active"; ?>" data-toggle="dropdown" role="button" aria-expanded="false" href="<?=site_url('dich-vu')?>" title="">Sản phẩm Dịch vụ</a>

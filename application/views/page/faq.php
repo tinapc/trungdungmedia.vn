@@ -1,4 +1,4 @@
-<div class="col-xs-9">
+<div class="col-xs-12">
 	<div class="row">
 		<div class="col-xs-12">
 			<h3 class="title-cat"><?=$this->load->get_var('title')?></h3>

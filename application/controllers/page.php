@@ -49,7 +49,7 @@ class Page extends Front_Controller {
 	public function whychooseTD(){
 		$content = $this->resource->get_where(array('published' => 1, 'content_type' => 'whychooseTD'),'');
 
-		$this->load->vars(array('title' => 'Tại sao chọn Tâm Điểm'));
+		$this->load->vars(array('title' => 'Tại sao chọn TrungDung Media'));
 		$this->template->set('content', $content);
 		$this->template->build('page/whychooseTD');	
 	}

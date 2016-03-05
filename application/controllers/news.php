@@ -22,6 +22,7 @@ class News extends Front_Controller {
 		$this->db->where(array('published' => 1, 'content_type' => 'news_item'));
 		$this->db->select('alias, title, intro, image, link_attr, external_link');
 		$this->db->limit(5);
+		$this->db->order_by('id', 'desc');
 		$otherNews = $this->db->get('resource')->result();
 
 		$seo = array(
@@ -43,7 +44,9 @@ class News extends Front_Controller {
 		$content = $this->resource->get_by(array('alias' => $segment),'');
 
 		// Related entry
-		$related = $this->resource->get_where(array('content_type' => $content->content_type, 'alias !=' => $content->alias, 'parent' => $content->parent), '');
+		//$this->db->limit(5);
+		$this->db->order_by('id', 'desc');
+		$related = $this->resource->get_where(array('content_type' => $content->content_type, 'alias !=' => $content->alias, 'parent' => $content->parent, 'published' => 1), '');
 
 		$seo = array(
 			'seo_keyword'	=> $content->long_title,
@@ -66,7 +69,7 @@ class News extends Front_Controller {
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'danh-muc-tin/'.$aliasCate;
 		$config['total_rows'] = $this->resource->count_all(array('parent' => $cates->id));
-		$config['per_page'] = 6;
+		$config['per_page'] = 10;
 		$config['uri_segment'] = 3;
 		$config['suffix'] = '.html'; 
 		$config['full_tag_open'] = '<ul class="pagination">';
