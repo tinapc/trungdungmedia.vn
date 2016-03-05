@@ -25,7 +25,7 @@ class Front_Controller extends MX_Controller {
 
 		// Data for Main nav
 		$fields = array(
-			'id', 'title', 'menu_title', 'alias', 'content_type', 'link_attr', 'external_link', 'icon'
+			'id', 'title', 'menu_title', 'alias', 'content_type', 'link_attr', 'external_link', 'icon','image', 'intro'
 		);
 		$data_nav_introduc = $this->resource->get_where(array('content_type =' => 'introduction', 'published' => 1, 'hide_from_menu' => 0 ), $fields, array('menu_index' => 'asc'));
 		$data_nav_cate_news = $this->resource->get_where(array('content_type =' => 'cate_news', 'published' => 1, 'hide_from_menu' => 0 ), $fields, array('menu_index' => 'asc'));

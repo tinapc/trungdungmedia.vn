@@ -130,8 +130,8 @@
     <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script> 
     <script type="text/javascript">stLight.options({publisher: "45615180-47a4-43ca-acc3-ae740e1561e9", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
     <script>
-    var options={ "publisher": "45615180-47a4-43ca-acc3-ae740e1561e9", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "googleplus", "linkedin", "pinterest", "email"]}};
-    var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+    /*var options={ "publisher": "45615180-47a4-43ca-acc3-ae740e1561e9", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "googleplus", "linkedin", "pinterest", "email"]}};
+    var st_hover_widget = new sharethis.widgets.hoverbuttons(options);*/
     </script>   
   </body>
 </html>
