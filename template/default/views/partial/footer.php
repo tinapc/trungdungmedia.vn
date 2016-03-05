@@ -1,3 +1,12 @@
+<div id="partner" class="container" >
+    <h2 class="text-center">KHÁCH HÀNG</h2>
+    <ul id="flexisel-partner" style="display:none">
+        <?php foreach ($this->load->get_var('partners') as $key) : ?>
+            <li><img src="<?php echo str_replace(array('tamdiem.home', 'lienviet.app', 'tamdiem.com.vn', 'trungdungmedia.app'), $_SERVER['HTTP_HOST'], $key->logo)?>" /></li>
+        <?php endforeach?>
+    </ul>
+</div><!--End partner-->
+
 <div class="near-footer">
     	<div class="container">
     		<div class="row">
@@ -42,9 +51,8 @@
     			</div>
     			<div class="col-xs-4" style="padding:0px">
     				<div class="comp_info">
-    					<h5><?=$this->load->get_var('company_name')?></h5>
-    					<p><?=$this->load->get_var('company_address')?></p>
-    					<p><?=$this->load->get_var('phone')?></p>
+    					<h5><?=$this->load->get_var('phone')?></h5>
+                        <input class="form-control input-search" id="keywords" value="Tìm kiếm">
     				</div>
     			</div>
     		</div>
@@ -58,22 +66,17 @@
     <div class="footer">
     	<div class="container">
     		<div class="row">
-    			<div class="col-xs-5">
-    				<p>
-    					&copy <?=date('Y')?> TÂM ĐIỂM Communications 
-                        <?php if($showHoatDong->published == 1) : ?>
-                            | <a href="<?=site_url('page/hinh-anh-hoat-dong')?>">Hình ảnh hoạt động</a>
-                        <?php endif ?>
-    				</p>
+    			<div class="col-xs-2">
+                    <a href="/" style="background: #303030; padding: 10px 13px; font-size: 20px; border-radius: 100px;"
+                    ><i class="fa fa-home"></i></a>
     			</div>
-    			<div class="col-xs-7 text-right" style="padding-right:0px">
-    				<a href="<?=site_url()?>">Trang chủ</a> |
-    				<a href="<?=site_url('gioi-thieu')?>">Giới thiệu</a> |
-    				<a href="<?=site_url('tin-tuc')?>">Tin tức & Sự kiện</a> |
-    				<a href="<?=site_url('dich-vu')?>">Sản phẩm dịch vụ</a> |
-    				<a href="<?=site_url('page/dien-thoai-ho-tro')?>">Hổ trợ khách hàng</a> |
-    				<a href="<?=site_url('page/ly-do-chon-tam-diem')?>">Lý do chọn TĐ</a>
+    			<div class="col-xs-7 text-center" style="padding-right:0px">
+    				Copyright &copy; <?=date('Y')?> TRUNG DŨNG Media <br>
+                    Địa chỉ: <?=$this->load->get_var('company_address')?>
     			</div>
+                <div class="col-xs-3">
+                    Đang online: <?php echo $this->counter->online()?>/Tổng số: <?php $this->counter->total()?>
+                </div>
     		</div>
     	</div>
     </div>
@@ -118,20 +121,58 @@
                 clone: true
             });
             $('#flexiselDemo3').show();
+
+            $("#flexisel-partner").flexisel({
+                visibleItems: 6,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: false,
+                clone: true
+            });
+            $("#flexisel-partner").show();
+
         });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#keywords')
+            .blur(function(event) {
+                if($(this).val() == '') {
+                    $(this).val('Tìm kiếm');
+                }
+            })
+            .focus(function(event) {
+                if($(this).val() == 'Tìm kiếm') {
+                    $(this).val('');
+                }
+            });
+
+            // Search function
+            $('#keywords').keyup(function(e){
+                if(e.keyCode == 13)
+                {
+                    var k = $('#keywords').val();
+                    var kk = k.replace(/%20/gi, ' ');
+                    window.location.href= site_url + 'tim-kiem/?k=' + kk;
+                }
+            });
+
+        });
+    </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?=base_url()?>assets/front/js/bootstrap.min.js"></script>
     <script src="<?=base_url()?>assets/front/js/main.js"></script>
 
     <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script> 
-    <script type="text/javascript">stLight.options({publisher: "45615180-47a4-43ca-acc3-ae740e1561e9", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <script type="text/javascript">stLight.options({publisher: "45615180-47a4-43ca-acc3-ae740e1561e9", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
     <script>
-    var options={ "publisher": "45615180-47a4-43ca-acc3-ae740e1561e9", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "googleplus", "linkedin", "pinterest", "email"]}};
-    var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+    /*var options={ "publisher": "45615180-47a4-43ca-acc3-ae740e1561e9", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "googleplus", "linkedin", "pinterest", "email"]}};
+    var st_hover_widget = new sharethis.widgets.hoverbuttons(options);*/
     </script>   
   </body>
 </html>
