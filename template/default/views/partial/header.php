@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/front/plugin/flexisel/css/style.css">
 
     <!--TextIllate Effect-->
-    <link href="<?= base_url() ?>assets/front/plugin/textillate/assets/animate.css" rel="stylesheet">
+    <!--<link href="<?/*= base_url() */?>assets/front/plugin/textillate/assets/animate.css" rel="stylesheet">-->
 
     <!--Font Awesome-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -50,8 +50,8 @@
 
 
     <!--News Ticker-->
-    <link href="<?= base_url() ?>assets/front/plugin/jnewsticker/corporate_blue.css" rel="stylesheet" type="text/css"/>
-    <script src="<?= base_url() ?>assets/front/plugin/jnewsticker/newsticker.jquery.min.js" type="text/javascript"></script>
+    <!--<link href="<?/*= base_url() */?>assets/front/plugin/jnewsticker/corporate_blue.css" rel="stylesheet" type="text/css"/>
+    <script src="<?/*= base_url() */?>assets/front/plugin/jnewsticker/newsticker.jquery.min.js" type="text/javascript"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,7 +61,7 @@
     <![endif]-->
     <script type="text/javascript">
         var site_url = '<?=base_url()?>';
-        $(document).ready(function () {
+        /*$(document).ready(function () {
             $('#newsticker_demo_scroll').newsticker({
                 'style': 'scroll',
                 'tickerTitle': '<img src="' + site_url + 'assets/front/plugin/jnewsticker/hotnews.gif" style="width:100%"/>',
@@ -72,7 +72,7 @@
                 'showControls': true,
                 'scrollSpeed': 30
             });
-        });
+        });*/
 
 
     </script>
