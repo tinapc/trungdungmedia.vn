@@ -48,6 +48,8 @@ $route['manager/logout'] = 'auth/logout';
 $route['manager/([a-zA-Z_-]+)'] = '$1/manager/index';
 $route['manager'] = 'dashboard';
 
+//$route['m-banner'] = 'banner/index/$1';
+
 /* Page */
 $route['page/(:any)'] = 'page/index/$1';
 $route['gioi-thieu'] = 'page/introduction/$1';

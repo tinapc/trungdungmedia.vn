@@ -11,6 +11,7 @@ class Front_Controller extends MX_Controller {
 
 		// Load helper
 		$this->load->helper(array('text'));
+		$this->load->helper('common');
 
 		// Load model 
 		$this->load->model('resource/resource_model', 'resource');

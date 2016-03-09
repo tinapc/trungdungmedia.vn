@@ -2,12 +2,11 @@
 	<div class="row">
 		
 		<div class="col-xs-12">
-			<h3 class="title-cat">Sản Phẩm & Dịch Vụ</h3>
 			<div class="row">
 				<div class="col-xs-12">
 					<h3 style="padding:0px; margin-top:0px; margin-bottom:20px;"><?=$content->title?></h3>
 					<?php if($content->image !=='') : ?>
-						<img style="max-width:300px; margin-right:10px; background-color: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 4px;" class="pull-left" src="<?=$content->image?>" class="img-responsive" alt="<?=$content->title?>"> 
+						<img style="max-width:300px; margin-right:10px; background-color: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 4px;" class="pull-left" src="<?=cover_image_path($content->image)?>" class="img-responsive" alt="<?=$content->title?>">
 					<?php else : ?>
 						<img style="max-width:300px; background-color: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 4px;" class="pull-left" src="http://dummyimage.com/250x150/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image" class="img-responsive">
 					<?php endif ?>
@@ -35,10 +34,10 @@
 					<div class="row list-product">
 						 
 							<?php foreach($products as $pro) : ?> 
-								<div class="col-xs-4 text-center">
+								<div class="col-sm-4 text-center">
 									<a href="<?=site_url('san-pham/'. $pro->alias)?>" style="color:#ec9523">
 										<?php if($pro->image !=='') : ?>
-										<img src="<?=$pro->image?>" class="img-responsive img-thumbnail" alt="<?=$pro->title?>">
+										<img src="<?=cover_image_path($pro->image)?>" class="img-responsive img-thumbnail" alt="<?=$pro->title?>">
 										<?php else : ?> 
 										<img src="http://dummyimage.com/250x150/4d494d/686a82.gif&text=No Image" alt="placeholder+image" class="img-responsive img-thumbnail">
 										<?php endif ?>

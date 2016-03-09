@@ -1,12 +1,11 @@
 <div class="col-xs-12">
 	<div class="row">
 		<div class="col-xs-12">
-			<h3 class="title-cat"><?=$this->load->get_var('title')?></h3>
 			<div class="clearfix"></div>
 			<div class="contact">
 				<div class="row">
 					<div class="col-xs-12">
-						<h3>Công ty TNHH Tâm Điểm (Tâm Điểm Communications)</h3>
+						<h3><?=$this->load->get_var('site_name')?></h3>
 						<p><i class="fa fa-home"></i>: <?=$this->load->get_var('company_address')?></p>
 						<p><i class="fa fa-envelope-o"></i>: <?=$this->load->get_var('email')?></p>
 						<p><i class="fa fa-tty"></i>: <?=$this->load->get_var('phone')?></p>

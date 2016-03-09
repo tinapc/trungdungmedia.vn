@@ -9,7 +9,7 @@ class Service extends Front_Controller {
 	public function index()
 	{
 		$segment = $this->uri->segment(2);
-		$content = $this->resource->get_where(array('content_type' => 'cate_service', 'published' => 1),'');
+		$content = $this->resource->get_where(array('content_type' => 'cate_service', 'published' => 1),'', array('menu_index' => 'asc'));
 
 		$this->load->vars(array('title' => 'Sản phẩm & Dịch vụ'));
 		$this->template->set('content', $content);

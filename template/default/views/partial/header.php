@@ -36,7 +36,7 @@
 
     <link href="<?= base_url() ?>assets/front/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/front/css/custom.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<?=base_url()?>assets/front/css/responsive.css">
     <!--Slider-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/front/plugin/flexisel/css/style.css">
 
@@ -61,21 +61,10 @@
     <![endif]-->
     <script type="text/javascript">
         var site_url = '<?=base_url()?>';
-        // $(function () {
-        //     $("#breakingnews1").BreakingNews({
-        //     	title: 'HOT <img src="<?=base_url()?>assets/front/images/jam_new.gif" alt=""/>',
-        //     	titlebgcolor: '#ff0000',
-        //     	isbold: true,
-        //     	timer: 5000,
-        //     	effect: 'slide'
-        //     });
-        // });
         $(document).ready(function () {
             $('#newsticker_demo_scroll').newsticker({
                 'style': 'scroll',
                 'tickerTitle': '<img src="' + site_url + 'assets/front/plugin/jnewsticker/hotnews.gif" style="width:100%"/>',
-                // 'twitter'       : 'Studio164a',
-                // 'twitterRequestUrl' : 'http://164a.com/jnewsticker/lib/twitter/fetch.php',
                 'twitterCount': 10,
                 'excerptLength': 170,
                 'pauseOnHover': true,
@@ -93,10 +82,10 @@
 <div class="block-header">
     <div class="container">
         <div class="row">
-            <div class="col-xs-3">
-                <a href="<?php echo base_url() ?>"><img src="<?= base_url() ?>assets/front/images/logo.png" class="logo img-responsive"/></a>
+            <div class="col-md-3 text-center">
+                <a href="<?php echo base_url() ?>" class="logo"><img src="<?= base_url() ?>assets/front/images/logo.png" class="img-responsive"/></a>
             </div>
-            <div class="col-xs-9">
+            <div class="col-md-9">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="main-nav">
@@ -109,10 +98,45 @@
     </div>
 </div>
 
-<div class="slide text-center">
-    <img src="<?= base_url() ?>assets/front/images/slide/1.jpg" alt="" style="width:100%">
+<?php
+$this->db->where('published', 1);
+$this->db->order_by('order', 'asc');
+$banners = $this->db->get('bigbanner')->result();
+?>
+
+<div class="container-fluid" style="padding:0">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="banner">
+                <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <?php foreach($banners as $row) : ?>
+                            <div class="item">
+                                <a href="<?=$row->linkTo?>"><img src="<?=cover_image_path($row->image)?>" alt=""></a>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <?php if ($this->router->fetch_class() == 'welcome') : ?>
+
+
+
     <div style="background: #191919">
         <div class="container">
             <div class="row">

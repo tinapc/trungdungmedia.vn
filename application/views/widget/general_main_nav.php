@@ -4,7 +4,7 @@
 	$activeSupport = '';
 
 	if($this->router->fetch_class() == 'welcome' || $this->router->fetch_method() == 'introduction' || $this->uri->segment(2) == 've-tam-diem' || $this->uri->segment(2) == 'ton-chi-hoat-dong') {
-		$introActive = 'active';
+		$introActive = '';
 	}
 
 	if($this->uri->segment(2) == 'dien-thoai-ho-tro' || $this->uri->segment(2) == 'so-do-duong-di' || $this->router->fetch_method() == 'faq') {
@@ -17,7 +17,7 @@
 ?>
 <ul class="nav nav-pills">
 
-	<li><a href="<?=site_url('tuyen-dung')?>" class="<?php if($this->router->fetch_method() == 'job') echo "active"; ?>" title="Tuyển dụng">Tuyển dụng</a></li>
+	<li><a href="<?=site_url('lien-he')?>" class="<?php if($this->router->fetch_method() == 'job') echo "active"; ?>" title="Tuyển dụng">Liên hệ</a></li>
 	<li class="dropdown">
 		<a class="dropdown-toggle disabled <?=$activeSupport?>" data-toggle="dropdown" role="button" aria-expanded="false" href="<?=site_url('page/dien-thoai-ho-tro')?>" title="">Hổ trợ khách hàng</a>
 		<ul class="dropdown-menu" role="menu">

@@ -226,11 +226,9 @@ pre {
   padding-right: 25px;
 }
 .navbar-default .navbar-brand {
-  padding-left: 35px;
   text-align: left;
   width: 206px;
   color: #FFF;
-  background: url(../images/logo.jpg) no-repeat 0 11px;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
   font-weight: 300;
   font-size: 19px;

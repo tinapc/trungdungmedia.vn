@@ -1,31 +1,6 @@
 <div class="col-xs-12">
 	<div class="title">Hổ trợ trực tuyến</div>
 	<div class="info support_online">
-		<!-- <ul class="support_online list-unstyled">
-			<?php foreach($supports as $row) : ?>
-			<?php if($row->skype !== '') : ?>
-			<li>
-				<a href="skype:<?=$row->skype?>?chat" class="pull-left">
-					<img border="0" src="<?=base_url()?>assets/front/images/icons/skype.png" alt="Skype">
-				</a>
-				<span>
-					<?=$row->name?> <br>
-					<?=$row->phone?>
-				</span>
-			</li>
-			<?php endif?> 
-			<li>
-				<a href="ymsgr:sendim?<?=$row->yahoo?>&m=Hello" class="pull-left">
-					<img border="0" src="<?=base_url()?>assets/front/images/icons/yahoo.png" alt="yahoo">
-				</a>
-				<span>
-					<?=$row->name?> <br>
-					<?=$row->phone?>
-				</span>
-			</li>
-			
-			<?php endforeach ?>
-		</ul> -->
 		<div class="row">
 			<div class="col-md-3" id="online">
 				<h5>Online:</h5>
@@ -76,16 +51,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#online a').click(function(){
-			// var rel = $(this).attr('rel');
-			// $(this).popover({
-			// 	html: true,
-			// 	placement: 'left',
-			// 	content: function(){
-			// 		return $('#'+rel).html();
-			// 	},
-			// 	trigger: 'click',
-			// 	'container': 'body'
-			// });
 			var rel = $(this).attr('rel');
 			var content = $('#' + rel).html();
 			$('#modal_yahoo .modal-content').html(content);
