@@ -360,6 +360,19 @@ $config['proxy_ips'] = '';
 
 
 /*
+ * List of sub page to display banner
+ *
+ */
+$config['subpages'] = array(
+    'gioi-thieu'    => 'Giới thiệu',
+    'ly-do-chon-td' => 'Lý do chọn Trung Dũng Media',
+    'support'   => 'Hổ trợ khách hàng',
+    'tin-tuc'   => 'Tin tức',
+    'san-pham'  => 'Sản phẩm - Dịch vụ',
+    'contact'   => 'Liên hệ'
+);
+
+/*
 |--------------------------------------------------------------------------
 | Config Modules
 |--------------------------------------------------------------------------

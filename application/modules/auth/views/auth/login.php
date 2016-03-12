@@ -29,7 +29,7 @@
 	<div class="middle-login">
 		<div class="block-flat">
 			<div class="header">							
-				<h3 class="text-center"><img class="logo-img" src="../assets/admin/images/logo.jpg" alt="logo"/>TÂM ĐIỂM</h3>
+				<h3 class="text-center">TRUNG DŨNG MEDIA</h3>
 			</div>
 			<div>
 				<form style="margin-bottom: 0px !important;" class="form-horizontal" action="<?=base_url()?>auth/login" method="post">
@@ -80,7 +80,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="text-center out-links"><a href="#">&copy; 2014 TÂM ĐIỂM</a></div>
+		<div class="text-center out-links"><a href="#">&copy; <?php echo date('Y')?> TrungDungMedia</a></div>
 	</div> 
 	
 </div>

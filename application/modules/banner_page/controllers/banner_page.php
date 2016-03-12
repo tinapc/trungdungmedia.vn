@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Banner extends Admin_Controller
+class Banner_page extends Admin_Controller
 {
 
     function __construct()
@@ -13,11 +13,11 @@ class Banner extends Admin_Controller
     // Index function
     public function index()
     {
-        $s_title = 'Main Banner';
+        $s_title = 'Banner Trang Con';
         $return_url = current_url();
-        $linkAdd = '/banner/create/';
+        $linkAdd = '/banner_page/create/';
 
-        $resources = $this->banner->get_where(array('subPage' => 0), '');
+        $resources = $this->banner->get_where(array('subPage' => 1), '');
 
         $this->load->vars(array('title' => $s_title));
         $this->template->set('resources', $resources);
@@ -69,7 +69,7 @@ class Banner extends Admin_Controller
     public function edit($id)
     {
         $resource = $this->banner->get($id, '');
-        $return_url = '/banner';
+        $return_url = '/banner_page';
 
         $data = array();
         $message = '';
@@ -82,15 +82,16 @@ class Banner extends Admin_Controller
             }
 
             $data['published'] = $this->input->post('published') ? $this->input->post('published') : 0;
+            $data['subPage'] = 1;
 
             $result = $this->banner->insert_update($id, $data);
 
             if ($result) {
                 $this->session->set_flashdata('message', 'Changes has been saved successfully!');
-                redirect('banner/edit/' . $id, 'refresh');
+                redirect('banner_page/edit/' . $id, 'refresh');
             } else {
                 $this->session->set_flashdata('error', 'The server is not responding, try again later.');
-                redirect('banner/edit/' . $id, 'refresh');
+                redirect('banner_page/edit/' . $id, 'refresh');
             }
         }
 
@@ -107,7 +108,7 @@ class Banner extends Admin_Controller
 
         $data = array();
         $message = '';
-        $return_url = '/banner';
+        $return_url = '/banner_page';
 
         if ($this->input->post()) {
 
@@ -116,15 +117,16 @@ class Banner extends Admin_Controller
             }
 
             $data['published'] = $this->input->post('published') ? $this->input->post('published') : 0;
+            $data['subPage'] = 1;
 
             $result = $this->banner->insert_update('', $data);
 
             if ($result) {
                 $this->session->set_flashdata('message', 'Changes has been saved successfully!');
-                redirect('/banner', 'refresh');
+                redirect('/banner_page', 'refresh');
             } else {
                 $this->session->set_flashdata('error', 'The server is not responding, try again later.');
-                redirect('banner/create/', 'refresh');
+                redirect('banner_page/create/', 'refresh');
             }
 
         }

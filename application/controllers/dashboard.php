@@ -12,7 +12,7 @@ class Dashboard extends Admin_Controller {
 
 	public function index()
 	{
-		$this->load->vars(array('title'=>'Dashboard | Tâm Điểm'));
+		$this->load->vars(array('title'=>'Dashboard'));
 		//$this->template->set('body', $data);
 
 		$this->db->select('config_online');

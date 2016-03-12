@@ -40,18 +40,17 @@
     <!--Slider-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/front/plugin/flexisel/css/style.css">
 
-    <!--TextIllate Effect-->
-    <!--<link href="<?/*= base_url() */?>assets/front/plugin/textillate/assets/animate.css" rel="stylesheet">-->
+    <style type="text/css">
+        .carousel-fade .carousel-inner.subpage .item img{
+            min-height: 240px;
+            max-height: 240px;
+        }
+    </style>
 
     <!--Font Awesome-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-    <!--News Ticker-->
-    <!--<link href="<?/*= base_url() */?>assets/front/plugin/jnewsticker/corporate_blue.css" rel="stylesheet" type="text/css"/>
-    <script src="<?/*= base_url() */?>assets/front/plugin/jnewsticker/newsticker.jquery.min.js" type="text/javascript"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,20 +60,6 @@
     <![endif]-->
     <script type="text/javascript">
         var site_url = '<?=base_url()?>';
-        /*$(document).ready(function () {
-            $('#newsticker_demo_scroll').newsticker({
-                'style': 'scroll',
-                'tickerTitle': '<img src="' + site_url + 'assets/front/plugin/jnewsticker/hotnews.gif" style="width:100%"/>',
-                'twitterCount': 10,
-                'excerptLength': 170,
-                'pauseOnHover': true,
-                'autoStart': true,
-                'showControls': true,
-                'scrollSpeed': 30
-            });
-        });*/
-
-
     </script>
 
 </head>
@@ -98,44 +83,41 @@
     </div>
 </div>
 
-<?php
-$this->db->where('published', 1);
-$this->db->order_by('order', 'asc');
-$banners = $this->db->get('bigbanner')->result();
-?>
 
-<div class="container-fluid" style="padding:0">
-    <div class="row">
-        <div class="col-xs-12">
-            <div id="banner">
-                <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <?php foreach($banners as $row) : ?>
-                            <div class="item">
-                                <a href="<?=$row->linkTo?>"><img src="<?=cover_image_path($row->image)?>" alt=""></a>
-                            </div>
-                        <?php endforeach ?>
+<?php if ($this->router->fetch_class() == 'welcome') : ?>
+    <?php
+    $this->db->where(array('published' => 1, 'subPage' => 0));
+    $this->db->order_by('order', 'asc');
+    $banners = $this->db->get('bigbanner')->result();
+    ?>
+    <div class="container-fluid" style="padding:0">
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="banner">
+                    <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <?php foreach($banners as $row) : ?>
+                                <div class="item">
+                                    <a href="<?=$row->linkTo?>"><img src="<?=cover_image_path($row->image)?>" alt=""></a>
+                                </div>
+                            <?php endforeach ?>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<?php if ($this->router->fetch_class() == 'welcome') : ?>
-
-
 
     <div style="background: #191919">
         <div class="container">
@@ -174,4 +156,59 @@ $banners = $this->db->get('bigbanner')->result();
             </div>
         </div>
     </div>
+<?php else : ?>
+    <?php
+        $route = $this->router->fetch_class();
+        $method = $this->router->fetch_method();
+        $segment = $this->uri->segment(2);
+
+        if ($route == 'page' && $segment == 'ly-do-chon-trung-dung-media') {
+            $belongToPage = 'ly-do-chon-td';
+        } elseif ($route == 'page' && $method == 'contact') {
+            $belongToPage = 'contact';
+        } elseif ($route == 'page' && ($method == 'faq' || $segment == 'dien-thoai-ho-tro' || $segment == 'so-do-duong-di')) {
+            $belongToPage = 'support';
+        } else if($route == 'service'){
+            $belongToPage = 'san-pham';
+        } elseif ($route == 'news') {
+            $belongToPage = 'tin-tuc';
+        } else {
+            $belongToPage = 'gioi-thieu';
+        }
+
+        $this->db->where(array('published' => 1, 'subPage' => 1, 'belongToPage' => $belongToPage));
+        $this->db->order_by('order', 'asc');
+        $this->db->limit(1);
+        $banners = $this->db->get('bigbanner')->result();
+    ?>
+    <div class="container-fluid" style="padding:0">
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="banner">
+                    <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner subpage" role="listbox">
+                            <?php foreach($banners as $row) : ?>
+                                <div class="item">
+                                    <a href="<?=$row->linkTo?>"><img src="<?=cover_image_path($row->image)?>" alt=""></a>
+                                </div>
+                            <?php endforeach ?>
+                        </div>
+
+                        <!-- Controls -->
+                        <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <?php endif ?>

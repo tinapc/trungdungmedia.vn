@@ -108,7 +108,8 @@
                         </li>
                         <li><a href="<?= base_url() ?>banner"><i class="fa fa-picture-o"></i><span>Main Banner</span></a>
                         </li>
-
+                        <li><a href="<?= base_url() ?>banner_page"><i class="fa fa-picture-o"></i><span>Banner trang con</span></a>
+                        </li>
 
                     </ul>
                 </div>
