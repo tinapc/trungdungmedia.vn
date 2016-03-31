@@ -6,6 +6,9 @@ body{
 	overflow-x: hidden;
 }
 
+.navbar-toggle{border:1px solid #fff}
+.navbar-toggle .icon-bar{background:#fff; color:#fff}
+
 a:link, a:hover {
 	text-decoration: none
 }
@@ -67,6 +70,10 @@ input.input-search{
 ::-webkit-input-placeholder {
 	color:#fff;
 }
+a.logo {
+    margin: 10px 0;
+    display: inline-block;
+}
 
 /* Main nav */
 .main-nav {
@@ -76,7 +83,7 @@ input.input-search{
 .main-nav .nav>li>a{
 	text-transform: uppercase;
 	color:#fff;
-	padding: 20px 10px;
+	padding: 34px 10px;
 	text-align: center;
 	font-size: 12px;
 	font-weight:bold;
@@ -95,7 +102,7 @@ input.input-search{
 	border: none !important;
 	padding-top: 0px;
 	padding-bottom: 0px;
-	top:52px;
+	top:80px;
 	min-width: 180px;
 	background-color: #aecc1c;
 }
@@ -115,7 +122,7 @@ input.input-search{
 .main-nav .dropdown-menu>li>a:focus {
 	color: #fff;
 	text-decoration: none;
-	background-color: #2382c4;
+	background-color: #161314;
 }
 
 /** MAIN CONTENT **/
@@ -146,7 +153,7 @@ input.input-search{
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	box-shadow: inset 0 0 10px #aecc1c;
-	height: 450px;
+	height: 355px;
 	overflow: hidden;
 	display: display-table;
 	transition: all .5s ease-out;
@@ -164,7 +171,7 @@ input.input-search{
 }
 .item-field img {
 	vertical-align: middle; margin-right: 10px;
-	max-height: 219px;
+	max-height: 219px; min-height: 219px;
 	width:100%;
 	margin-bottom: 20px;
 }
@@ -175,7 +182,6 @@ input.input-search{
 	font-size: 14px;
 	font-weight: normal;
 	line-height: 25px;
-	padding-top: 20px;
 }
 
 /* Near Footer */
@@ -459,7 +465,7 @@ h3.cate_pro span{
 	color: #5e6e0e;
 }
 
-.box3-homepage img{width:100%; max-height: 245px; margin-bottom: 10px}
+.box3-homepage img{width:100%; max-height: 245px; min-height: 245px; margin-bottom: 10px}
 
 
 /** Partner Slider **/

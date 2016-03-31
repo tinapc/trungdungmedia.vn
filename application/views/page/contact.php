@@ -18,9 +18,9 @@
 					<div class="col-xs-12">
 						<h4>Sơ đồ đường đi</h4>
 						<div class="clearfix"></div>
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3919.2654261811686!2d106.70560520000001!3d10.790971599999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b482d92f17%3A0x913b09513f114f76!2zMTAgTmd1eeG7hW4gVGjhu4sgTWluaCBLaGFp!5e0!3m2!1sen!2s!4v1419870945875" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d3294.505789336902!2d106.57470049382637!3d10.899023073007637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e0!4m0!4m3!3m2!1d10.9000688!2d106.5746356!5e0!3m2!1svi!2sus!4v1457841486588" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
-				</div>		
+				</div>
 			</div>
 		</div>
 		

@@ -59,9 +59,19 @@
                                                         <div class="form-group">
                                                             <label class="">Chọn trang hiển thị</label>
                                                             <select name="belongToPage" id="belongToPage" class="form-control">
-                                                                <?php $subpages = $this->config->item('subpages');
-                                                                foreach($subpages as $subpage => $page) : ?>
-                                                                    <?php if ($resource->belongToPage == $subpage) : ?>
+                                                                <?php
+                                                                    $subpages = $this->config->item('subpages');
+
+                                                                    $this->db->select('title, alias');
+                                                                    $this->db->where(array('content_type' => 'cate_service', 'published' => 1));
+                                                                    $services = $this->db->get('resource')->result_array();
+                                                                    $m = array();
+                                                                    foreach ($services as $service) {
+                                                                        $subpages[$service['alias']] = $service['title'];
+                                                                    }
+                                                                ?>
+                                                                <?php foreach($subpages as $subpage => $page) : ?>
+                                                                    <?php if (@$resource->belongToPage == $subpage) : ?>
                                                                         <option value="<?=$subpage?>" selected="selected"><?=$page?></option>
                                                                     <?php else : ?>
                                                                         <option value="<?=$subpage?>"><?=$page?></option>

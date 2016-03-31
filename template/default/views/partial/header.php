@@ -4,6 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="OXyj9TMKJKnBpSONrquIijXL7dnVr8ofcx9xaGKysJY"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <title><?= $this->load->get_var('title') ?></title>
     <meta name="google-site-verification" content="5-fC8EeC_1gqsok3CneADtweHcnmDZWpksaveAPb8Bg"/>
     <meta name="description" content="<?= $this->load->get_var('seo_description') ?>"/>
@@ -36,12 +55,12 @@
 
     <link href="<?= base_url() ?>assets/front/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/front/css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?=base_url()?>assets/front/css/responsive.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/front/css/responsive.css">
     <!--Slider-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/front/plugin/flexisel/css/style.css">
 
     <style type="text/css">
-        .carousel-fade .carousel-inner.subpage .item img{
+        .carousel-fade .carousel-inner.subpage .item img {
             min-height: 240px;
             max-height: 240px;
         }
@@ -69,6 +88,15 @@
         <div class="row">
             <div class="col-md-3 text-center">
                 <a href="<?php echo base_url() ?>" class="logo"><img src="<?= base_url() ?>assets/front/images/logo.png" class="img-responsive"/></a>
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
             </div>
             <div class="col-md-9">
                 <div class="row">
@@ -97,9 +125,9 @@
                     <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
-                            <?php foreach($banners as $row) : ?>
+                            <?php foreach ($banners as $row) : ?>
                                 <div class="item">
-                                    <a href="<?=$row->linkTo?>"><img src="<?=cover_image_path($row->image)?>" alt=""></a>
+                                    <a href="<?= $row->linkTo ?>"><img src="<?= cover_image_path($row->image) ?>" alt=""></a>
                                 </div>
                             <?php endforeach ?>
                         </div>
@@ -130,7 +158,7 @@
                             $this->db->where(array('is_hot' => 1, 'published' => 1));
                             $hots = $this->db->get('resource')->result();
                             ?>
-                            <?php if (count($hots)) : ?>
+                            <?php if (count($hots) > 0) : ?>
                                 <?php foreach ($hots as $row) : ?>
                                     <?php
                                     if ($row->content_type == 'news_item') {
@@ -141,7 +169,7 @@
                                         $url = site_url('san-pham/' . $row->alias);
                                     }
 
-                                    if ($row->image == '') {
+                                    if (empty($row->image)) {
                                         $image = 'http://dummyimage.com/130x70/4d494d/686a82.gif&text=No Image';
                                     } else {
                                         $image = $row->image;
@@ -158,28 +186,30 @@
     </div>
 <?php else : ?>
     <?php
-        $route = $this->router->fetch_class();
-        $method = $this->router->fetch_method();
-        $segment = $this->uri->segment(2);
+    $route = $this->router->fetch_class();
+    $method = $this->router->fetch_method();
+    $segment = $this->uri->segment(2);
 
-        if ($route == 'page' && $segment == 'ly-do-chon-trung-dung-media') {
-            $belongToPage = 'ly-do-chon-td';
-        } elseif ($route == 'page' && $method == 'contact') {
-            $belongToPage = 'contact';
-        } elseif ($route == 'page' && ($method == 'faq' || $segment == 'dien-thoai-ho-tro' || $segment == 'so-do-duong-di')) {
-            $belongToPage = 'support';
-        } else if($route == 'service'){
-            $belongToPage = 'san-pham';
-        } elseif ($route == 'news') {
-            $belongToPage = 'tin-tuc';
-        } else {
-            $belongToPage = 'gioi-thieu';
-        }
+    if ($route == 'page' && $segment == 'ly-do-chon-trung-dung-media') {
+        $belongToPage = 'ly-do-chon-td';
+    } elseif ($route == 'page' && $method == 'contact') {
+        $belongToPage = 'contact';
+    } elseif ($route == 'page' && ($method == 'faq' || $segment == 'dien-thoai-ho-tro' || $segment == 'so-do-duong-di')) {
+        $belongToPage = 'support';
+    } else if ($route == 'service' && $method == 'index') {
+        $belongToPage = 'san-pham';
+    } else if ($route == 'service' && $method == 'item') {
+        $belongToPage = $segment ? $segment : 'gioi-thieu';
+    } elseif ($route == 'news') {
+        $belongToPage = 'tin-tuc';
+    } else {
+        $belongToPage = 'gioi-thieu';
+    }
 
-        $this->db->where(array('published' => 1, 'subPage' => 1, 'belongToPage' => $belongToPage));
-        $this->db->order_by('order', 'asc');
-        $this->db->limit(1);
-        $banners = $this->db->get('bigbanner')->result();
+    $this->db->where(array('published' => 1, 'subPage' => 1, 'belongToPage' => $belongToPage));
+    $this->db->order_by('order', 'asc');
+    $this->db->limit(1);
+    $banners = $this->db->get('bigbanner')->result();
     ?>
     <div class="container-fluid" style="padding:0">
         <div class="row">
@@ -188,22 +218,12 @@
                     <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner subpage" role="listbox">
-                            <?php foreach($banners as $row) : ?>
+                            <?php foreach ($banners as $row) : ?>
                                 <div class="item">
-                                    <a href="<?=$row->linkTo?>"><img src="<?=cover_image_path($row->image)?>" alt=""></a>
+                                    <a href="<?= $row->linkTo ?>"><img src="<?= cover_image_path($row->image) ?>" alt=""></a>
                                 </div>
                             <?php endforeach ?>
                         </div>
-
-                        <!-- Controls -->
-                        <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>-->
                     </div>
                 </div>
             </div>

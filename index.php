@@ -11,7 +11,7 @@ if(HOST_NAME == 'trungdungmedia.app') {
 	define('SOURES_PATH', $_SERVER['DOCUMENT_ROOT'].'/');
 } else {
 	define('SOURES_PATH', $_SERVER['DOCUMENT_ROOT'].'/');
-    $environment = 'development';
+    $environment = 'production';
 }
 
 

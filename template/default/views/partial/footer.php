@@ -1,5 +1,5 @@
 <div id="partner" class="container" >
-    <h2 class="text-center">KHÁCH HÀNG</h2>
+    <h2 class="text-center">ĐỐI TÁC</h2>
     <ul id="flexisel-partner" style="display:none">
         <?php foreach ($this->load->get_var('partners') as $key) : ?>
             <li><img src="<?php echo str_replace(array('tamdiem.home', 'lienviet.app', 'tamdiem.com.vn', 'trungdungmedia.app'), $_SERVER['HTTP_HOST'], $key->logo)?>" /></li>
@@ -65,15 +65,6 @@
                                 $hotlines = explode(',', $this->load->get_var('hotline'));
                                 ?>
 
-                                <!--<div class="col-md-8 hotline">
-                                    <?php /*if(count($hotlines)) {
-                                        foreach($hotlines as $hotline) {  */?>
-                                            <?php /*if ($hotline !== 'phone') : */?>
-                                            <a href="javascript:;"><img src="<?/*=base_url()*/?>assets/front/images/icon_hotline.gif"/> <?/*=$hotline*/?></a>
-                                                <?php /*endif*/?>
-                                        <?php /*}
-                                    } */?>
-                                </div>-->
                             </div>
                         </div>
                         <input class="form-control input-search" id="keywords" value="Tìm kiếm">
@@ -143,18 +134,8 @@
 
     <script src="<?=base_url()?>assets/front/plugin/flexisel/js/jquery.flexisel.js"></script>
 
-
-    <!--TextIllate Effect-->
-    <!--<script src="<?/*=base_url()*/?>assets/front/plugin/textillate/assets/jquery.fittext.js"></script>
-    <script src="<?/*=base_url()*/?>assets/front/plugin/textillate/assets/jquery.lettering.js"></script>
-    <script src="<?/*=base_url()*/?>assets/front/plugin/textillate/jquery.textillate.js"></script>-->
     <script type="text/javascript">
         $(document).ready(function() {
-            /*$('.slogon-flash').textillate({
-                loop: true, 
-                in: { effect: 'flash', shuffle: false, reverse: false, sync: false }, 
-                out: { effect: 'pulse', shuffle: false, reverse: true, sync: false}
-            });*/
 
             jQuery('.main-nav ul.nav li.dropdown').hover(function() {
                 jQuery(this).find('.dropdown-menu').stop(true, true).slideDown();
@@ -165,8 +146,6 @@
             });
 
             $('.carousel-inner .item:first').addClass('active');
-
-            //$('.nbs-flexisel-container').hide();
         });
 
 
@@ -226,13 +205,15 @@
     <script src="<?=base_url()?>assets/front/js/bootstrap.min.js"></script>
     <script src="<?=base_url()?>assets/front/js/main.js"></script>
 
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script> 
-    <script type="text/javascript">stLight.options({publisher: "45615180-47a4-43ca-acc3-ae740e1561e9", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
-    <script>
-    /*var options={ "publisher": "45615180-47a4-43ca-acc3-ae740e1561e9", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "googleplus", "linkedin", "pinterest", "email"]}};
-    var st_hover_widget = new sharethis.widgets.hoverbuttons(options);*/
-    </script>   
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-75148480-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
   </body>
 </html>

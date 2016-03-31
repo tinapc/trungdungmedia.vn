@@ -15,7 +15,9 @@
 		$activeWhyChooseTD = 'active';
 	}
 ?>
-<ul class="nav nav-pills">
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav nav-pills">
 
 	<li><a href="<?=site_url('lien-he')?>" class="<?php if($this->router->fetch_method() == 'job') echo "active"; ?>" title="Tuyển dụng">Liên hệ</a></li>
 	<li class="dropdown">
@@ -67,3 +69,4 @@
 		</ul>
 	</li>
 </ul>
+</div>

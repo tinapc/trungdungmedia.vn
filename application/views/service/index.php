@@ -16,7 +16,7 @@
 								<div class="clearfix"></div>
 								<p><?=$row->title?></p>
 								<p class="intro">
-									<?=$row->intro?>
+									<?=word_limiter($row->intro, 15)?>
 								</p>
 							</a>
 						</div>

@@ -28,20 +28,16 @@
 											<td><img src="<?=$resource->image?>" alt="" style="width: 300px"></td>
 											<td>
 												<?php
-													switch($resource->belongToPage) {
-														case 'gioi-thieu':
-															echo "Giới thiệu";
-															break;
-														case 'san-pham':
-															echo "Sản phẩm - Dịch Vụ";
-															break;
-														case 'tin-tuc':
-															echo "Tin tức";
-															break;
-														case 'contact':
-															echo "Liên hệ";
-															break;
-													}
+                                                $subpages = $this->config->item('subpages');
+
+                                                $this->db->select('title, alias');
+                                                $this->db->where(array('content_type' => 'cate_service', 'published' => 1));
+                                                $services = $this->db->get('resource')->result_array();
+                                                $m = array();
+                                                foreach ($services as $service) {
+                                                    $subpages[$service['alias']] = $service['title'];
+                                                }
+                                                echo $subpages[$resource->belongToPage];
 												?>
 											</td>
 											<td>

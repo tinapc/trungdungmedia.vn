@@ -1,6 +1,7 @@
 <?php
 	$this->db->select('alias,image');
-	$this->db->where(array('is_default' => 1, 'content_type' => 'cate_service'));
+	$this->db->where(array('published' => 1, 'content_type' => 'cate_service'));
+	$this->db->order_by('id','desc');
 	$this->db->limit(1);
 	$oneService = $this->db->get('resource')->row();
 
@@ -11,7 +12,7 @@
 	$oneNew = $this->db->get('resource')->row();
 
 	$this->db->select('alias,image');
-	$this->db->where(array('published' => 1, 'content_type' => 'product_item'));
+	$this->db->where(array('published' => 1, 'content_type' => 'product_item', 'parent' => 79));
 	$this->db->order_by('id','desc');
 	$this->db->limit(1);
 	$onePro = $this->db->get('resource')->row();
@@ -36,7 +37,8 @@
 
 			</div>
 			<div class="col-sm-4 text-center">
-				<a href="<?=site_url('san-pham/'.$onePro->alias)?>"><img src="<?php echo cover_image_path($onePro->image)?>" class="img-responsive" alt="">
+				<iframe width="100%" height="245" src="//www.youtube.com/embed/<?=$this->load->get_var('video_td')?>" frameborder="0" allowfullscreen></iframe>
+				<a href="<?=site_url('san-pham/'.$onePro->alias)?>">
 					<span>VIDEO MEDIA</span>
 				</a>
 
@@ -64,7 +66,7 @@
 							<div class="clearfix"></div>
 							<p><?=$row->title?></p>
 							<p class="intro">
-								<?=$row->intro?>
+								<?=word_limiter($row->intro, 15)?>
 							</p>
 						</a>
 					</div>
