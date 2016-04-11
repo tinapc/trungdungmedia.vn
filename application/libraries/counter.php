@@ -16,7 +16,12 @@ Truy cập trung bình: <?php avg(); ?> <br>
 
 class Counter {
 	function init(){
-		$ip = $_SERVER['REMOTE_ADDR'];
+		//$ip = $_SERVER['REMOTE_ADDR'];
+        if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
  		$found = '';
 	    $file_ip = fopen(SOURES_PATH.'counter/ip.txt', 'rb');
 	    while (!feof($file_ip)) $line[]=fgets($file_ip,1024);
@@ -54,7 +59,11 @@ class Counter {
 
 	function online()
 	{
-	    $rip = $_SERVER['REMOTE_ADDR'];
+        if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $rip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $rip = $_SERVER['REMOTE_ADDR'];
+        }
 	    $sd = time();
 	    $count = 1;
 	    $maxu = 1;
